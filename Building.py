@@ -4,28 +4,30 @@
 import pygame,Const
 class Building:
 	def __init__(self,left=True,tower=True,hp=10):
-		self.coeff=int((Const.RESY-Const.CARD_HEIGHT-Const.ROOF_HEIGHT)/Const.TOWER_VICTORY)
+		self.coeff=(Const.RESY-Const.CARD_HEIGHT-Const.ROOF_HEIGHT)/Const.TOWER_VICTORY
 		self.hp = hp
 		self.left = left
 		self.tower = tower
+		self.pos_sound = Const.BUILD_POS_SOUND
+		self.neg_sound = Const.BUILD_NEG_SOUND
 		self.font = Const.BUILDING_FONT
 		self.text = self.font.render("%d"%self.hp, True, (255,255,255))
 		self.height = self.coeff*self.hp
 		if tower:
-			self.width = int(Const.RESX/8)
+			self.width = Const.RESX/8
 		else:
-			self.width = int(Const.RESX/16)
+			self.width = Const.RESX/16
 		self.init_y = Const.RESY-Const.CARD_HEIGHT-self.text.get_height()
 		initial_y = self.init_y - self.height
 		if (left and tower):
-			self.pos = (int(3*Const.RESX/16),initial_y)
+			self.pos = (3*Const.RESX/16,initial_y)
 		if (left and not tower):
-			self.pos = (int(5*Const.RESX/16) + int(Const.RESX/20), initial_y)
+			self.pos = (5*Const.RESX/16 + Const.RESX/20, initial_y)
 		if (not left and tower):
-			self.pos = (int(11*Const.RESX/16), initial_y)
+			self.pos = (11*Const.RESX/16, initial_y)
 		if (not left and not tower):
-			self.pos = (int(11*Const.RESX/16) - int(Const.RESX/20) - self.width, initial_y)
-		self.text_pos = (self.pos[0]+int((self.width-self.text.get_width())/2),self.init_y)
+			self.pos = (11*Const.RESX/16 - Const.RESX/20 - self.width, initial_y)
+		self.text_pos = (self.pos[0]+(self.width-self.text.get_width())/2,self.init_y)
 		if left:
 			self.color = Const.LEFT_COLOR
 		else:
@@ -41,11 +43,15 @@ class Building:
 		y = self.pos[1]
 		if self.tower:
 			pygame.draw.polygon(screen, self.color , 
-				[(int(x-w/6),y), (int(x+7*w/6),y), (int(x+w/2),y-Const.ROOF_HEIGHT)])
+				[(x-w/6,y), (x+7*w/6,y), (x+w/2,y-Const.ROOF_HEIGHT)])
 
 	def change(self,value):
 		self.hp = min(Const.TOWER_VICTORY,max(0,self.hp+value))
 		self.build()
+		if value > 0:
+			self.pos_sound.play()
+		if value < 0:
+			self.neg_sound.play()
 	
 	def build(self):
 		self.height = self.coeff*self.hp
@@ -53,8 +59,3 @@ class Building:
 		self.body = pygame.Surface((self.width,self.height))
 		self.body.fill((128,128,128))
 		self.text = self.font.render("%d"%self.hp, True, (255,255,255))
-
-	
-
-
-
