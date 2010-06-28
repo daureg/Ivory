@@ -1,21 +1,32 @@
 #! /usr/bin/env python
 # vim: set fileencoding=utf-8 :
 # pylint: disable-msg=W0312
+import options
+
+def clamp(x, s, e):
+	return min(max(x,s),e)
+
+def available_mode(s):
+	if s.strip() in ["human", "ai"]:
+		return s.strip()
+	else:
+		return "human"
+
 import pygame.font,pygame.mixer
 pygame.font.init()
 pygame.mixer.init()
-HUMAN=0
-AI=1
 
 # Options
-RESX=800
-RESY=600
-PLAYER1=HUMAN
-PLAYER2=AI
-TOWER_VICTORY=100
-RESSOURCE_VICTORY=int(TOWER_VICTORY*1.5)
-INIT_VAL=int(RESSOURCE_VICTORY/10)
-INIT_INC=int(INIT_VAL/10)
+PLAYER1=available_mode(options.PLAYER1)
+PLAYER2=available_mode(options.PLAYER2)
+TOWER_VICTORY=clamp(options.TOWER_VICTORY, 20, 500)
+INIT_TOWER=TOWER_VICTORY/10
+RESSOURCE_VICTORY=int(clamp(options.RESSOURCE_VICTORY, 35, 750)
+INIT_VAL=int(clamp(options.INIT_VAL, 3, 75))
+INIT_INC=int(clamp(options.INIT_INC, 1, 7))
+RESX=clamp(options.RESX, 100, 3000)
+RESY=clamp(options.RESY, 100, 3000)
+FULLSCREEN=bool(options.FULLSCREEN)
 
 # Private
 CARD_HEIGHT=int(RESY/3)
