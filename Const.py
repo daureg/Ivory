@@ -12,9 +12,17 @@ def available_mode(s):
 	else:
 		return "human"
 
-import pygame.font,pygame.mixer
-pygame.font.init()
-pygame.mixer.init()
+import pygame.font,pygame.mixer,sys
+if pygame.font:
+	pygame.font.init()
+else:
+	print(_("You need SDL_tff!"))
+	sys.exit()
+if pygame.mixer:
+	pygame.mixer.init()
+else:
+	print(_("You need SDL_mixer!"))
+	sys.exit()
 
 # Options
 PLAYER1=available_mode(options.PLAYER1)
@@ -32,10 +40,11 @@ FULLSCREEN=bool(options.FULLSCREEN)
 CARD_HEIGHT=RESY/3
 ROOF_HEIGHT=RESY/8
 # Colors
-DARK=(0,0,0)
-LIGHT_DARK=(128,0,0)
+BLACK=(0,0,0)
+LIGHT_BLACK=(128,0,0)
 GREY=(128,128,128)
 ALPHA_GREY=(128,128,128,128)
+WHITE=(255,255,255)
 RED=(255,0,0)
 LIGHT_RED=(128,0,0)
 GREEN=(0,255,0)
