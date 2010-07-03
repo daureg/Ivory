@@ -16,12 +16,13 @@ are in game."""
 		self.ingame = []
 		self.rnd = random.Random()
 
-	def get_card(self):
-		"""Give a random card and place it ingame."""
+	def get_card(self, pos):
+		"""Give a random card and place it ingame and in 'pos'."""
 		idx = self.rnd.randint(0, len(self.cards) - 1)
 		card = self.cards[idx]
 		self.cards.remove(card)
 		self.ingame.append(card)
+		card.set_pos(pos)
 		return card
 
 	def played_card(self, card):
