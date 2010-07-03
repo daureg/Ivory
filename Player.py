@@ -22,10 +22,10 @@ class Player:
 				Const.DARK_GREEN, _("Creatures"))
 		self.cards = []
 		for i in xrange(1, 7):
-			self.cards.append(deck.get_card())
-			self.cards[-1:][0].set_pos((i*res_x/49+(i-1)*res_x/7,
-				res_y-Const.CARD_HEIGHT))
+			self.cards.append(deck.get_card((i*res_x/49+(i-1)*res_x/7,
+					res_y-Const.CARD_HEIGHT)))
 		self.win = False
+		self.deck = deck
 	
 	def draw(self, screen, active):
 		"""Draw all element while checking for not playable card."""
@@ -55,6 +55,31 @@ class Player:
 		self.change_g(self.get_m())
 		self.change_c(self.get_d())
 
+	def click(self, event):
+		"""Return None or the card selected by user"""
+		clx = event.pos[0]
+		cly = event.pos[1]
+		res_x = Const.RESX
+		lim_y = Const.RESY-Const.CARD_HEIGHT
+		card = None
+		for i in self.cards:
+			pos_x = i.box_pos[0]
+			car_w = i.w
+			if clx >= pos_x and clx <= pos_x + car_w and cly >= lim_y:
+				card = i
+		if card == None:
+			return None, None, None
+		else:
+			again = card.again
+			discard = event.button == 2 or card.discard
+			return card, again, discard
+	
+	def card_out(self, card):
+		"""Remove 'card' and replace it with a new one"""
+		pos = self.deck.played_card(card)
+		self.cards.append(self.deck.get_card(pos))
+
+
 	def get_t(self):
 		return self.tower.hp
 	def get_w(self):
@@ -74,7 +99,7 @@ class Player:
 	def change_t(self, val):
 		self.tower.change(val)
 	def change_w(self, val):
-		self.wall.change(val)
+		return self.wall.change(val)
 	def change_b(self, val):
 		self.brick.change_val(val)
 	def change_q(self, val):
@@ -87,3 +112,5 @@ class Player:
 		self.crea.change_val(val)
 	def change_d(self, val):
 		self.crea.change_inc(val)
+	def nothing(self, val):
+		pass
