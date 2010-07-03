@@ -1,0 +1,12 @@
+[General]
+name=Unicorn
+[Cost]
+c=9
+[Condition]
+if=OM > EM
+[Then_Effect]
+EW=-12
+[Else_Effect]
+EW=-8
+
+# vim: ft=cfg

@@ -1,0 +1,5 @@
+import string as s
+for i in s.letters[0:26]:
+	print "cp card.sample %s.card"%i
+	print "sed -i 's/name$/%s/' %s.card"%(3*i.upper(),i)
+

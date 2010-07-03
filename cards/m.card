@@ -1,0 +1,8 @@
+[General]
+name=Sample MMM
+[Cost]
+[Condition]
+[Then_Effect]
+[Else_Effect]
+
+# vim: ft=cfg

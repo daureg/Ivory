@@ -1,0 +1,8 @@
+[General]
+name=Sample LLL
+[Cost]
+[Condition]
+[Then_Effect]
+[Else_Effect]
+
+# vim: ft=cfg

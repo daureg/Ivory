@@ -1,0 +1,17 @@
+[General]
+name=Barracks
+[Cost]
+b=10
+c=5
+g=10
+[Condition]
+if=OD < ED
+[Then_Effect]
+oc=+6
+ow=+6
+od=+1
+[Else_Effect]
+oc=+6
+ow=+6
+
+# vim: ft=cfg

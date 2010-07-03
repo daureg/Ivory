@@ -1,0 +1,52 @@
+cp card.sample a.card
+sed -i 's/name$/AAA/' a.card
+cp card.sample b.card
+sed -i 's/name$/BBB/' b.card
+cp card.sample c.card
+sed -i 's/name$/CCC/' c.card
+cp card.sample d.card
+sed -i 's/name$/DDD/' d.card
+cp card.sample e.card
+sed -i 's/name$/EEE/' e.card
+cp card.sample f.card
+sed -i 's/name$/FFF/' f.card
+cp card.sample g.card
+sed -i 's/name$/GGG/' g.card
+cp card.sample h.card
+sed -i 's/name$/HHH/' h.card
+cp card.sample i.card
+sed -i 's/name$/III/' i.card
+cp card.sample j.card
+sed -i 's/name$/JJJ/' j.card
+cp card.sample k.card
+sed -i 's/name$/KKK/' k.card
+cp card.sample l.card
+sed -i 's/name$/LLL/' l.card
+cp card.sample m.card
+sed -i 's/name$/MMM/' m.card
+cp card.sample n.card
+sed -i 's/name$/NNN/' n.card
+cp card.sample o.card
+sed -i 's/name$/OOO/' o.card
+cp card.sample p.card
+sed -i 's/name$/PPP/' p.card
+cp card.sample q.card
+sed -i 's/name$/QQQ/' q.card
+cp card.sample r.card
+sed -i 's/name$/RRR/' r.card
+cp card.sample s.card
+sed -i 's/name$/SSS/' s.card
+cp card.sample t.card
+sed -i 's/name$/TTT/' t.card
+cp card.sample u.card
+sed -i 's/name$/UUU/' u.card
+cp card.sample v.card
+sed -i 's/name$/VVV/' v.card
+cp card.sample w.card
+sed -i 's/name$/WWW/' w.card
+cp card.sample x.card
+sed -i 's/name$/XXX/' x.card
+cp card.sample y.card
+sed -i 's/name$/YYY/' y.card
+cp card.sample z.card
+sed -i 's/name$/ZZZ/' z.card
