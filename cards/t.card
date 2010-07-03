@@ -1,8 +1,0 @@
-[General]
-name=Sample TTT
-[Cost]
-[Condition]
-[Then_Effect]
-[Else_Effect]
-
-# vim: ft=cfg
