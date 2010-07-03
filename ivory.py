@@ -1,4 +1,6 @@
 #! /usr/bin/env python
 # vim: set fileencoding=utf-8 :
-import Game
+"""Ivory Launcher."""
+import Game, Const, gettext
+gettext.install('ivory', Const.LOCALE_DIR, unicode=True)
 Game.Game().run()
