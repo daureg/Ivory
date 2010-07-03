@@ -144,9 +144,9 @@ class Card:
 				desc += trans[i] + ":" + str(value) + " "
 		if self.condition != "":
 			desc += _("else ")
-		for i, value in enumerate(self.else_l):
-			if value != 0:
-				desc += trans[i] + ":" + str(value) + " "
+			for i, value in enumerate(self.else_l):
+				if value != 0:
+					desc += trans[i] + ":" + str(value) + " "
 		if self.again:
 			desc += _("play again ")
 		if self.discard:
