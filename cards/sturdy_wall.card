@@ -1,12 +1,10 @@
 [General]
-name=Lucky Cache
-play_again=True
+name=Sturdy Wall
 [Cost]
-b=0
+b=3
 [Condition]
 [Then_Effect]
-OB=2
-OG=2
+OW=4
 [Else_Effect]
 
 # vim: ft=cfg

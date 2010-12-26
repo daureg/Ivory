@@ -1,12 +1,11 @@
 [General]
-name=Lucky Cache
-play_again=True
+name=Work Overtime
 [Cost]
-b=0
+b=2
 [Condition]
 [Then_Effect]
-OB=2
-OG=2
+OW=5
+OG=-6
 [Else_Effect]
 
 # vim: ft=cfg

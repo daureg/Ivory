@@ -1,12 +1,12 @@
 [General]
-name=Lucky Cache
-play_again=True
+name=Mother Lode
 [Cost]
-b=0
+b=4
 [Condition]
+if=OQ < EQ
 [Then_Effect]
-OB=2
-OG=2
+OQ=2
 [Else_Effect]
+OQ=1
 
 # vim: ft=cfg

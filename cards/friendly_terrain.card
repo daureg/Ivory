@@ -1,12 +1,11 @@
 [General]
-name=Lucky Cache
+name=Friendly Terrain
 play_again=True
 [Cost]
-b=0
+b=1
 [Condition]
 [Then_Effect]
-OB=2
-OG=2
+OW=1
 [Else_Effect]
 
 # vim: ft=cfg

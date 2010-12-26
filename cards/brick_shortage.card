@@ -1,12 +1,11 @@
 [General]
-name=Lucky Cache
-play_again=True
+name=Brick Shortage
 [Cost]
 b=0
 [Condition]
 [Then_Effect]
-OB=2
-OG=2
+OB=-8
+EB=-8
 [Else_Effect]
 
 # vim: ft=cfg

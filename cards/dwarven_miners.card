@@ -1,12 +1,11 @@
 [General]
-name=Lucky Cache
-play_again=True
+name=Dwarven Miners
 [Cost]
-b=0
+b=7
 [Condition]
 [Then_Effect]
-OB=2
-OG=2
+OW=4
+OQ=1
 [Else_Effect]
 
 # vim: ft=cfg
