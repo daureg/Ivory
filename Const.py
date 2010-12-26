@@ -65,10 +65,11 @@ DARK_BLUE = (0, 0, 192)
 LEFT_COLOR = (255, 0, 0)
 RIGHT_COLOR = (0, 0, 255)
 # Fonts
-FONT_FILE = "DejaVuLGCSans.ttf"
+FONT_FILE = os.path.join(DATA_DIR, "DejaVuLGCSans.ttf")
 BUILDING_FONT = pygame.font.Font(FONT_FILE, 20)
-INC_FONT = pygame.font.Font(FONT_FILE, 20)
+INC_FONT = BUILDING_FONT
 VAL_FONT = pygame.font.Font(FONT_FILE, 14)
+INFO_FONT = INC_FONT
 CARD_FONT = pygame.font.Font(FONT_FILE, 10)
 WINNER_FONT = pygame.font.Font(FONT_FILE, 36)
 # Sounds
