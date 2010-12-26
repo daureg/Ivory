@@ -55,12 +55,17 @@ class Building:
 	def change(self, value):
 		"""Change health point and return supplementary damage if the wall
 		is destroyed"""
+		diff = self.hp - value
 		self.hp = min(Const.TOWER_VICTORY, max(0, self.hp+value))
 		self.build()
 		if value > 0:
 			self.pos_sound.play()
 		if value < 0:
 			self.neg_sound.play()
+		if not self.tower and diff < 0:
+			return diff
+		else:
+			return 0
 	
 	def build(self):
 		"""Build all the graphic elements"""

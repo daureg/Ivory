@@ -6,7 +6,7 @@ import os, os.path, random, Card, Const
 class Deck:
 	"""Construct a list of cards while maintaining information over those which
 are in game."""
-	def __init__(self, exemplary = 3):
+	def __init__(self, exemplary = 5):
 		"""Reads cards in CARDS_DIR and build them exemplary times."""
 		available = (c for c in os.listdir(Const.CARDS_DIR) if c.endswith(".card"))
 		self.cards = []
